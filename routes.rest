@@ -1,0 +1,21 @@
+//LOCALHOST
+### Get all contacts
+
+GET http://localhost:3000/contacts
+
+### Get contact by id
+GET http://localhost:3000/contacts/6782f14823cdfd33c291abf7
+
+### Create a new contact
+POST http://localhost:3000/contacts HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Geo",
+    "lastName": "Rey",
+    "email": "jovannyrey1@gmail.com",
+    "favoriteColor": "Dark Green",
+    "birthday": "10/13/1982"
+}
+
+
