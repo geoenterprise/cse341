@@ -5,13 +5,34 @@
     "description": "API to manage contacts",
     "version": "1.0.0"
   },
-  "host": "cse341-xu0r.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
+    "http",
     "https"
   ],
   "paths": {
     "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/contacts/": {
       "get": {
         "tags": [
           "Contacts"
@@ -67,7 +88,7 @@
         }
       }
     },
-    "/{id}": {
+    "/contacts/{id}": {
       "get": {
         "tags": [
           "Contacts"

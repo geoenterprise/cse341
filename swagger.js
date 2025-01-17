@@ -6,12 +6,16 @@ const doc = {
     title: 'Contacts API',
     description: 'API to manage contacts',
   },
-  host: process.env.SWAGGER_HOST || 'localhost:3000',
-  schemes: [process.env.SWAGGER_SCHEME || 'https'],
+  host:
+    process.env.MODE === 'production'
+      ? process.env.SWAGGER_HOST
+      : 'localhost:3000',
+
+  schemes: ['http', process.env.SWAGGER_SCHEME || 'https'],
 };
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/contacts.js'];
+const endpointsFiles = ['./routes/index.js'];
 
 // generates swagger.json
 swaggerAutogen(outputFile, endpointsFiles, doc);
