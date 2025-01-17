@@ -1,17 +1,15 @@
 require('dotenv').config();
 const swaggerAutogen = require('swagger-autogen')();
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const doc = {
   info: {
     title: 'Contacts API',
     description: 'API to manage contacts',
   },
-  host:
-    process.env.MODE === 'production'
-      ? process.env.SWAGGER_HOST
-      : 'localhost:3000',
-
-  schemes: ['http', process.env.SWAGGER_SCHEME || 'https'],
+  host: isProduction ? process.env.SWAGGER_HOST : 'localhost:3000',
+  schemes: [isProduction ? process.env.SWAGGER_SCHEME : 'http'],
 };
 
 const outputFile = './swagger.json';
