@@ -9,11 +9,37 @@ const getAll = async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(contacts);
   });
+  // mongodb
+  //   .getDatabase()
+  //   .db()
+  //   .collection('Contacts')
+  //   .find()
+  //   .toArray((err, contacts) => {
+  //     if (err) {
+  //       res.status(500).json(err);
+  //     } else {
+  //       res.setHeader('Content-Type', 'application/json');
+  //       res.status(200).json(contacts);
+  //     }
+  //   });
 };
 
 const getSingle = async (req, res) => {
   //#swagger.tags = ['Contacts']
   const contactId = new ObjectId(req.params.id);
+  // mongodb
+  //   .getDatabase()
+  //   .db()
+  //   .collection('Contacts')
+  //   .find({ _id: contactId })
+  //   .toArray((err, contact) => {
+  //     if (err) {
+  //       res.status(500).json(err);
+  //     } else {
+  //       res.setHeader('Content-Type', 'application/json');
+  //       res.status(200).json(contact[0]);
+  //     }
+  //   });
   const result = await mongodb
     .getDatabase()
     .db()
